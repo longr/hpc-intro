@@ -1,0 +1,56 @@
+
+# Lancaster University: HEC + SGE
+snippets: "/snippets_library/lancs_hec_sge"
+
+local:
+  prompt: "[user@laptop ~]$"
+
+remote:
+  name: "Wayland"
+  login: "wayland.hec.lancs.ac.uk"
+  node: "comp22-09"
+  location: "Lancaster University"
+  homedir: "/home"
+  user: "yourUsername"
+  prompt: "wayland-20202% "
+  bash_shebang: "#!/bin/bash"
+  host: "wayland-2020"
+  
+sched:
+  name: "SGE"
+  submit:
+    name: "qsub"
+    options: ""
+    iopt: ""
+  status: "qstat"
+  flag:
+    user: "-u yourUsername"
+    interactive: "-l mem=512M,h_rt=2:00:00"
+    name: "-N"
+    histdetail: "-j"
+    time: "-l h_rt="
+    queue: "-q"
+  del: "qdel"
+  interactive: "qlogin"
+  info: "qhost"
+  comment: "#$ "
+  hist: "jobhist"
+  bash_shebang: "#!/bin/bash"
+  queue:
+    testing: "test"
+
+workshop:
+  sched:
+    name: "SGE"
+
+  
+episode_order:
+  - 11-hpc-intro
+  - 12-cluster
+  - 13-scheduler
+  - 14-modules
+  - 15-transferring-files
+  - 16-parallel
+  - 17-resources
+  - 18-responsibility
+

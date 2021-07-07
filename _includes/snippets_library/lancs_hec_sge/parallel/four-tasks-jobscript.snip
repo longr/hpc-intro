@@ -1,0 +1,18 @@
+```
+{{ site.remote.bash_shebang }}
+{{ site.sched.comment }} {{ site.sched.flag.name }} parallel-pi
+{{ site.sched.comment }} {{ site.sched.flag.queue }} {{ site.sched.queue.testing }}
+{{ site.sched.comment }} -l h_vmem=3G
+{{ site.sched.comment }} -l np=4
+
+# Load the computing environment we need
+module load anaconda3/2020.11
+module load openmpi/4.0.5-gcc
+
+# Activate the conda environment for python
+source activate mpi
+
+# Execute the task
+mpiexec python parallel-pi.py 100000000
+```
+{: .language-bash}
